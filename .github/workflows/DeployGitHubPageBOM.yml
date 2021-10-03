@@ -26,7 +26,8 @@ jobs:
       uses: actions/setup-python@v2.2.2
         
     - name: Install requirements 
-      run: sudo apt-get install build-essential libgtk-3-dev python-wxgtk3.0-dev
+      #run: sudo apt-get install build-essential libgtk-3-dev python-wxgtk3.0-dev
+      run: sudo apt-get install libgtk-3-dev python-wxgtk3.0-dev
         
     - name: Install dependencies
       run: pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04 wxPython
