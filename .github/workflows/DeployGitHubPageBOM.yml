@@ -1,6 +1,7 @@
 name: Interactive HTML Bom GitHub Pages Deploy
 
 on:
+  workflow_dispatch:
   push:
     branches: [ $default-branch ]
   pull_request:
