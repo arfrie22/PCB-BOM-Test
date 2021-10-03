@@ -3,9 +3,9 @@ name: Interactive HTML Bom GitHub Pages Deploy
 on:
   workflow_dispatch:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -29,7 +29,7 @@ jobs:
     #  run: pip install wxpython
       
     - name: Build bom
-      run: python3 .InteractiveHtmlBom/generate_interactive_bom.py ./Proton/Proton.kicad_pcb
+      run: python3 ./InteractiveHtmlBom/generate_interactive_bom.py ./Proton/Proton.kicad_pcb
       
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
