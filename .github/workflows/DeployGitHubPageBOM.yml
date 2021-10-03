@@ -1,0 +1,36 @@
+name: Interactive HTML Bom GitHub Pages Deploy
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone repository
+      uses: sudosubin/git-clone-action@v1.0.1
+    
+    - name: Clone InteractiveHTMLBom
+      uses: sudosubin/git-clone-action@v1.0.1
+      with:
+        repository: openscopeproject/InteractiveHtmlBom
+         
+    - name: Setup Python
+      uses: actions/setup-python@v2.2.2
+        
+    - name: Install dependencies
+      run: pip install 
+      
+    - name: Build bom
+      run: python3 .InteractiveHtmlBom/generate_interactive_bom.py ./Proton/Proton.kicad_pcb
+      
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
