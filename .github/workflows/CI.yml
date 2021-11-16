@@ -13,7 +13,7 @@ on:
 jobs:
   ERC:
     runs-on: ubuntu-latest
-    container: setsoft/kicad_auto:latest
+    container: setsoft/kicad_auto:nightly
 
     steps:
     - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
 
   DRC:
     runs-on: ubuntu-latest
-    container: setsoft/kicad_auto:latest
+    container: setsoft/kicad_auto:nightly
     needs: ERC
 
     steps:
@@ -47,7 +47,7 @@ jobs:
   FabSch:
     name: Schematic fabrication files
     runs-on: ubuntu-latest
-    container: setsoft/kicad_auto:latest
+    container: setsoft/kicad_auto:nightly
     needs: ERC
 
     steps:
@@ -65,7 +65,7 @@ jobs:
   FabPCB:
     name: PCB fabrication files
     runs-on: ubuntu-latest
-    container: setsoft/kicad_auto:latest
+    container: setsoft/kicad_auto:nightly
     needs: DRC
 
     steps:
