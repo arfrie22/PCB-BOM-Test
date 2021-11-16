@@ -13,7 +13,7 @@ on:
 jobs:
   ERC:
     runs-on: ubuntu-latest
-    container: setsoft/kicad_auto:nightly
+    container: setsoft/kicad_auto:dev
 
     steps:
     - uses: actions/checkout@v2
