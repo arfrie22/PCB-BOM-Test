@@ -20,7 +20,7 @@ jobs:
 
     - name: Run ERC
       run: |
-        ls && [ -f *.sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
+        ls && [ -f *.kicad_sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
@@ -55,7 +55,7 @@ jobs:
 
     - name: Run schematic stuff
       run: |
-        [ -f *.sch ] && kiplot  -d Fabrication -s run_drc,run_erc print_sch
+        [ -f *.kicad_sch ] && kiplot  -d Fabrication -s run_drc,run_erc print_sch
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
