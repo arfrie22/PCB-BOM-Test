@@ -20,7 +20,7 @@ jobs:
 
     - name: Run ERC
       run: |
-        cd Proton && [ -f *.sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
+        ls && [ -f *.sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
@@ -37,7 +37,7 @@ jobs:
 
     - name: Run DRC
       run: |
-        cd Proton && [ -f *.kicad_pcb ] && kiplot  -d Fabrication -s update_xml,run_erc -i
+        [ -f *.kicad_pcb ] && kiplot  -d Fabrication -s update_xml,run_erc -i
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
@@ -55,7 +55,7 @@ jobs:
 
     - name: Run schematic stuff
       run: |
-        cd Proton && [ -f *.sch ] && kiplot  -d Fabrication -s run_drc,run_erc print_sch
+        [ -f *.sch ] && kiplot  -d Fabrication -s run_drc,run_erc print_sch
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
@@ -73,7 +73,7 @@ jobs:
 
     - name: Run PCB stuff
       run: |
-        cd Proton && [ -f *.kicad_pcb ] && kiplot  -d Fabrication -s all print_front gerbers
+        [ -f *.kicad_pcb ] && kiplot  -d Fabrication -s all print_front gerbers
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
